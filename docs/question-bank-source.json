@@ -1,0 +1,1238 @@
+[
+  {
+    "part": 1,
+    "number": 1,
+    "answer": 1,
+    "prompt": "计算机的“大脑”是？",
+    "options": [
+      "硬盘",
+      "CPU",
+      "显示器",
+      "鼠标"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 2,
+    "answer": 1,
+    "prompt": "1 Byte 等于多少 bit？",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "1024"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 3,
+    "answer": 2,
+    "prompt": "“Ctrl+Z”通常用来？",
+    "options": [
+      "保存",
+      "打印",
+      "撤销",
+      "删除"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 4,
+    "answer": 1,
+    "prompt": "电脑死机时，IT部门首先会建议你做什么？",
+    "options": [
+      "换CPU",
+      "重启",
+      "砸屏幕",
+      "念咒语"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 5,
+    "answer": 2,
+    "prompt": "鼠标属于？",
+    "options": [
+      "输出设备",
+      "存储设备",
+      "输入设备",
+      "电子宠物"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 6,
+    "answer": 2,
+    "prompt": "网页地址通常以什么开头？",
+    "options": [
+      "ftp",
+      "namespace",
+      "http",
+      "ccnb"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 7,
+    "answer": 2,
+    "prompt": "“WWW”的中文意思是？",
+    "options": [
+      "世界网",
+      "电脑网",
+      "万维网",
+      "呜呜呜"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 8,
+    "answer": 1,
+    "prompt": "上网需要的一种地址叫？",
+    "options": [
+      "家庭地址",
+      "IP地址",
+      "邮箱地址",
+      "收件地址"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 9,
+    "answer": 2,
+    "prompt": "电脑病毒是？",
+    "options": [
+      "生物病毒",
+      "细菌",
+      "程序",
+      "灰尘"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 10,
+    "answer": 2,
+    "prompt": "防病毒通常靠？",
+    "options": [
+      "多灌水",
+      "晒CPU",
+      "杀毒软件",
+      "换配件"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 11,
+    "answer": 1,
+    "prompt": "“文件扩展名”通常表示？",
+    "options": [
+      "文件大小",
+      "文件类型",
+      "文件梗概",
+      "文件脾气"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 12,
+    "answer": 2,
+    "prompt": "“.jpg”通常是？",
+    "options": [
+      "动图",
+      "鸡屁股",
+      "图片",
+      "压缩包"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 13,
+    "answer": 1,
+    "prompt": "“.zip”通常是？",
+    "options": [
+      "快捷打开方式",
+      "压缩文件",
+      "超链接",
+      "拉链"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 14,
+    "answer": 1,
+    "prompt": "bug指的是？",
+    "options": [
+      "挂",
+      "程序漏洞",
+      "python爬虫",
+      "广东双马尾"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 15,
+    "answer": 2,
+    "prompt": "以下哪一个是危害电脑软件安全的行为？",
+    "options": [
+      "拿mac打游戏",
+      "外接键盘",
+      "为了增快网速把防火墙卸了",
+      "定期重启终止后台程序运行"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 16,
+    "answer": 2,
+    "prompt": "1 KB 等于多少 Byte？",
+    "options": [
+      "100",
+      "512",
+      "1024",
+      "2048"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 17,
+    "answer": 1,
+    "prompt": "计算机断电后，数据通常会丢失的是？",
+    "options": [
+      "硬盘",
+      "内存",
+      "U盘",
+      "光盘"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 18,
+    "answer": 2,
+    "prompt": "下列哪个是操作系统？",
+    "options": [
+      "Word",
+      "Excel",
+      "Windows",
+      "Chrome"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 19,
+    "answer": 2,
+    "prompt": "下列哪个是浏览器？",
+    "options": [
+      "Windows",
+      "Excel",
+      "Chrome",
+      "记事本"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 20,
+    "answer": 1,
+    "prompt": "电子邮件地址中通常必须有的符号是？",
+    "options": [
+      "#",
+      "@",
+      "$",
+      "%"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 21,
+    "answer": 1,
+    "prompt": "正确关闭电脑通常应？",
+    "options": [
+      "直接拔电源",
+      "开始菜单选择关机",
+      "长按电源直到断电",
+      "关闭显示器即可"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 22,
+    "answer": 0,
+    "prompt": "文件被删除到回收站后，通常可以？",
+    "options": [
+      "直接还原",
+      "变成病毒",
+      "自动发送",
+      "增大内存"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 23,
+    "answer": 1,
+    "prompt": "文件夹的主要作用是？",
+    "options": [
+      "提高CPU频率",
+      "分类管理文件",
+      "杀毒",
+      "增大内存"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 24,
+    "answer": 1,
+    "prompt": "在桌面上打开程序，通常可以？",
+    "options": [
+      "对着屏幕喊",
+      "双击图标",
+      "拔掉鼠标",
+      "关机"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 25,
+    "answer": 2,
+    "prompt": "下列哪个是输入设备？",
+    "options": [
+      "显示器",
+      "打印机",
+      "键盘",
+      "音箱"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 26,
+    "answer": 3,
+    "prompt": "下列哪个是输出设备？",
+    "options": [
+      "鼠标",
+      "键盘",
+      "扫描仪",
+      "显示器"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 27,
+    "answer": 0,
+    "prompt": "下列哪个是存储设备？",
+    "options": [
+      "U盘",
+      "鼠标",
+      "显示器",
+      "键盘"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 28,
+    "answer": 2,
+    "prompt": "二进制数只有哪两个数字？",
+    "options": [
+      "1和2",
+      "0和9",
+      "0和1",
+      "2和8"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 29,
+    "answer": 1,
+    "prompt": "十进制数 10 转换成二进制是？",
+    "options": [
+      "1000",
+      "1010",
+      "1100",
+      "1110"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 30,
+    "answer": 1,
+    "prompt": "“.txt”通常是？",
+    "options": [
+      "图片",
+      "文本",
+      "音频",
+      "视频"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 31,
+    "answer": 2,
+    "prompt": "“.mp3”通常是？",
+    "options": [
+      "图片",
+      "文档",
+      "音频",
+      "压缩包"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 32,
+    "answer": 1,
+    "prompt": "“.mp4”通常是？",
+    "options": [
+      "文本",
+      "视频",
+      "图片",
+      "表格"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 33,
+    "answer": 2,
+    "prompt": "下列哪个是文字处理软件？",
+    "options": [
+      "画图",
+      "计算器",
+      "Word",
+      "浏览器"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 34,
+    "answer": 3,
+    "prompt": "下列哪个是电子表格软件？",
+    "options": [
+      "记事本",
+      "画图",
+      "播放器",
+      "Excel"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 35,
+    "answer": 1,
+    "prompt": "上网浏览网页通常使用？",
+    "options": [
+      "计算器",
+      "浏览器",
+      "画图",
+      "杀毒软件"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 36,
+    "answer": 2,
+    "prompt": "网址中的“.com”通常表示？",
+    "options": [
+      "个人",
+      "政府",
+      "商业机构",
+      "学校"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 37,
+    "answer": 3,
+    "prompt": "Wi-Fi 是一种？",
+    "options": [
+      "硬盘接口",
+      "图片格式",
+      "编程语言",
+      "无线网络技术"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 38,
+    "answer": 1,
+    "prompt": "蓝牙通常用于？",
+    "options": [
+      "给电脑供电",
+      "短距离无线连接",
+      "增大硬盘",
+      "显示图像"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 39,
+    "answer": 2,
+    "prompt": "安装软件时，较安全的做法是？",
+    "options": [
+      "从陌生论坛下载破解版",
+      "关闭杀毒软件",
+      "从官网下载",
+      "随便点广告"
+    ]
+  },
+  {
+    "part": 1,
+    "number": 40,
+    "answer": 2,
+    "prompt": "密码安全的基本做法是？",
+    "options": [
+      "告诉同学",
+      "设成123456",
+      "定期更换并避免复用",
+      "写在屏幕上"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 1,
+    "answer": 1,
+    "prompt": "执行 print(type(3.14)) 的输出是",
+    "options": [
+      "<class 'int'>",
+      "<class 'float'>",
+      "<class 'str'>",
+      "<class 'bool'>"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 2,
+    "answer": 2,
+    "prompt": "下列变量名合法的是",
+    "options": [
+      "2name",
+      "my-name",
+      "_score",
+      "class"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 3,
+    "answer": 0,
+    "prompt": "执行 print(7 // 2, 7 % 2) 的输出是",
+    "options": [
+      "3 1",
+      "3.5 1",
+      "3 0",
+      "4 1"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 4,
+    "answer": 0,
+    "prompt": "执行 print(\"abc\" + \"def\") 的输出是",
+    "options": [
+      "abcdef",
+      "abc def",
+      "abc+def",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 5,
+    "answer": 1,
+    "prompt": "执行 print(\"Python\"[1:4]) 的输出是",
+    "options": [
+      "Pyt",
+      "yth",
+      "ytho",
+      "tho"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 6,
+    "answer": 1,
+    "prompt": "执行 print(len(\"Hello\")) 的输出是",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 7,
+    "answer": 0,
+    "prompt": "执行以下代码，输出结果是\nx = 5\nif x > 3:\n    print(\"A\")\nelse:\n    print(\"B\")",
+    "options": [
+      "A",
+      "B",
+      "AB",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 8,
+    "answer": 1,
+    "prompt": "执行以下代码，输出结果是\nfor i in range(3):\n    print(i, end=\" \")",
+    "options": [
+      "1 2 3",
+      "0 1 2",
+      "0 1 2 3",
+      "1 2"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 9,
+    "answer": 1,
+    "prompt": "执行以下代码，循环体执行几次\ni = 0\nwhile i < 4:\n    i += 1",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "无限"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 10,
+    "answer": 0,
+    "prompt": "执行 print([1, 2, 3] + [4, 5]) 的输出是",
+    "options": [
+      "[1, 2, 3, 4, 5]",
+      "[5, 7]",
+      "[1, 2, 3, [4, 5]]",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 11,
+    "answer": 2,
+    "prompt": "执行 a = [10, 20, 30]; print(a[-1]) 的输出是",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 12,
+    "answer": 1,
+    "prompt": "执行以下代码，输出结果是\na = [1, 2, 3]\na.append(4)\nprint(len(a))",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "报错"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 13,
+    "answer": 0,
+    "prompt": "执行以下代码，输出结果是\ndef f(x):\n    return x * 2\nprint(f(3) + f(4))",
+    "options": [
+      "14",
+      "24",
+      "7",
+      "12"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 14,
+    "answer": 1,
+    "prompt": "执行以下代码，输出结果是\ns = 0\nfor i in range(1, 6):\n    s += i\nprint(s)",
+    "options": [
+      "10",
+      "15",
+      "20",
+      "21"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 15,
+    "answer": 1,
+    "prompt": "执行以下代码，输出结果是\na = 3\nb = 5\na, b = b, a\nprint(a, b)",
+    "options": [
+      "3 5",
+      "5 3",
+      "5 5",
+      "3 3"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 16,
+    "answer": 1,
+    "prompt": "小明在浏览器地址栏输入：\nhttp://www.zhejiang.2026/it\n按下回车后，页面无法打开。他灵机一动，把 http 改成了 www，结果：",
+    "options": [
+      "页面正常打开，因为 www 是浏览器默认协议",
+      "页面仍然打不开，因为 URL 的协议部分不能随意替换",
+      "页面正常打开，因为 www 是万维网的标准前缀",
+      "浏览器自动补全为 http，页面正常打开"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 17,
+    "answer": 1,
+    "prompt": "小明在地址栏输入 http://www.zj. edu/2026，浏览器提示“无法找到该网页”。最可能的原因是",
+    "options": [
+      "缺少端口号，如 :80",
+      "缺少网页文件名，如 /index.html",
+      "www 是多余前缀，应删除",
+      "http 应改为 https 才能访问教育网站"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 18,
+    "answer": 2,
+    "prompt": "某老师让学生访问校内网资源，给出地址 ftp://10.1.1.5/共享/试卷.docx。关于该地址，下列说法正确的是",
+    "options": [
+      "ftp 表示该地址使用文件传输协议，下载速度快于 http",
+      "10.1.1.5 是一个域名，需要DNS服务器解析",
+      "/共享/试卷.docx 是服务器上的文件路径",
+      "ftp 协议只能下载文件，不能上传"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 19,
+    "answer": 3,
+    "prompt": "小红想给朋友发一个包含数学公式的网页链接。她复制的地址是 https://math.example.com/formula?id=42&lang=zh。关于该URL，下列说法不正确的是",
+    "options": [
+      "https 表示该连接经过加密，比 http 更安全",
+      "?id=42&lang=zh 是查询参数，用于向服务器传递数据",
+      "math.example.com 中 math 是子域名，example.com 是主域名",
+      "该URL指向一个HTML文件，文件名为 formula"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 20,
+    "answer": 1,
+    "prompt": "删除文件后清空回收站，文件通常？",
+    "options": [
+      "彻底消失",
+      "还能被恢复工具找回",
+      "变成0和1飘走",
+      "进入二进制天堂"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 21,
+    "answer": 1,
+    "prompt": "给电脑插满RGB灯，性能通常？",
+    "options": [
+      "提升300%",
+      "不变，但信仰+100",
+      "自动超频",
+      "吓退bug"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 22,
+    "answer": 1,
+    "prompt": "“重启解决90%问题”，因为？",
+    "options": [
+      "可以恐吓电脑",
+      "重置临时状态，清掉卡死进程",
+      "重启会重装系统",
+      "IT部门在你重启时可登入解决问题"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 23,
+    "answer": 2,
+    "prompt": "浏览器无痕模式能让你？",
+    "options": [
+      "完全隐身",
+      "不被网站、ISP、老板发现",
+      "本机少留记录，但网络仍可见",
+      "自动翻墙"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 24,
+    "answer": 1,
+    "prompt": "密码设成123456但加个感叹号，安全性？",
+    "options": [
+      "无敌",
+      "仍然很弱",
+      "黑客会笑到放弃",
+      "达到军用级"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 25,
+    "answer": 1,
+    "prompt": "电脑内存越大，硬盘空间？",
+    "options": [
+      "自动变大",
+      "不变，内存和硬盘不是一回事",
+      "被内存吃掉",
+      "一起涨价"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 26,
+    "answer": 1,
+    "prompt": "“云存储”里的文件主要在？",
+    "options": [
+      "天上",
+      "别人的服务器",
+      "你路由器里",
+      "风里"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 27,
+    "answer": 1,
+    "prompt": "关闭程序窗口，程序一定退出了吗？",
+    "options": [
+      "一定",
+      "不一定，可能还在后台",
+      "窗口关了电脑就关机",
+      "程序去度假"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 28,
+    "answer": 1,
+    "prompt": "电脑进水后立刻开机测试，通常？",
+    "options": [
+      "能烘干",
+      "可能短路，扩大损坏",
+      "可让风机把水转出去或烘干",
+      "变成水冷"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 29,
+    "answer": 0,
+    "prompt": "localhost指的是？",
+    "options": [
+      "本地这台机器",
+      "电脑主人",
+      "谷歌服务器",
+      "星露谷农场主控"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 30,
+    "answer": 1,
+    "prompt": "网速100Mbps，下载速度大约最高？",
+    "options": [
+      "100MB/s",
+      "12.5MB/s",
+      "1000MB/s",
+      "看运气，可能负的"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 31,
+    "answer": 1,
+    "prompt": "HTTPS主要保证？",
+    "options": [
+      "网站内容一定真实",
+      "传输加密，但不等于网站可信",
+      "电脑不会中毒",
+      "自动匿名"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 32,
+    "answer": 1,
+    "prompt": "二进制里10等于十进制？",
+    "options": [
+      "10",
+      "2",
+      "1",
+      "看心情"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 33,
+    "answer": 1,
+    "prompt": "固态硬盘SSD比机械硬盘快，所以SSD？",
+    "options": [
+      "数据永远不会丢",
+      "仍需备份，坏了可能更难恢复",
+      "不需要电源",
+      "能防病毒"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 34,
+    "answer": 1,
+    "prompt": "任务管理器主要用于？",
+    "options": [
+      "给CPU超频",
+      "查看和结束进程",
+      "自动写代码",
+      "清理灰尘"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 35,
+    "answer": 2,
+    "prompt": "电脑蓝屏通常表示？",
+    "options": [
+      "屏幕坏了",
+      "鼠标没电",
+      "系统遇到严重错误",
+      "网速太快"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 36,
+    "answer": 1,
+    "prompt": "安全模式的主要作用是？",
+    "options": [
+      "让电脑更安全地上网",
+      "以最少驱动和服务启动，便于排错",
+      "自动杀毒",
+      "提高游戏帧数"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 37,
+    "answer": 2,
+    "prompt": "DNS的主要作用是？",
+    "options": [
+      "给电脑降温",
+      "清理垃圾",
+      "把域名解析成IP地址",
+      "加密硬盘"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 38,
+    "answer": 0,
+    "prompt": "路由器的主要作用是？",
+    "options": [
+      "连接不同网络并转发数据",
+      "存储电影",
+      "显示图像",
+      "给CPU供电"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 39,
+    "answer": 1,
+    "prompt": "HTTP 404通常表示？",
+    "options": [
+      "服务器着火",
+      "请求的页面未找到",
+      "密码错误",
+      "网速太快"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 40,
+    "answer": 3,
+    "prompt": "防火墙的主要作用是？",
+    "options": [
+      "提高屏幕亮度",
+      "扩大硬盘容量",
+      "给文件改名",
+      "监控和限制网络流量"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 41,
+    "answer": 0,
+    "prompt": "VPN通常可以？",
+    "options": [
+      "建立加密隧道，但不等于完全匿名",
+      "让电脑永不中毒",
+      "免费提升硬件",
+      "自动备份数据"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 42,
+    "answer": 2,
+    "prompt": "钓鱼邮件通常试图？",
+    "options": [
+      "帮你清理磁盘",
+      "提升网速",
+      "诱导你点击链接或泄露信息",
+      "给CPU降温"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 43,
+    "answer": 3,
+    "prompt": "双因素认证是指？",
+    "options": [
+      "两个密码完全相同",
+      "两台电脑同时登录",
+      "两个杀毒软件",
+      "密码之外再增加一种验证方式"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 44,
+    "answer": 0,
+    "prompt": "强密码通常应？",
+    "options": [
+      "足够长且混合多种字符，不复用",
+      "只用生日",
+      "和用户名相同",
+      "写在便签贴屏幕上"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 45,
+    "answer": 1,
+    "prompt": "软件更新的主要安全意义是？",
+    "options": [
+      "让电脑变贵",
+      "修补已知漏洞",
+      "增加灰尘",
+      "减少硬盘容量"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 46,
+    "answer": 2,
+    "prompt": "备份和RAID的区别是？",
+    "options": [
+      "完全一样",
+      "RAID一定更安全",
+      "RAID不是备份，误删仍可能丢失",
+      "备份只能存一份"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 47,
+    "answer": 3,
+    "prompt": "3-2-1备份原则通常指？",
+    "options": [
+      "3个杀毒软件、2个系统、1个密码",
+      "3天备份一次、2台电脑、1个U盘",
+      "3个浏览器、2个邮箱、1个网盘",
+      "至少3份数据、2种介质、1份异地"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 48,
+    "answer": 0,
+    "prompt": "勒索软件通常？",
+    "options": [
+      "加密文件并索要赎金",
+      "帮你整理桌面",
+      "提高网速",
+      "清理病毒"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 49,
+    "answer": 1,
+    "prompt": "最小权限原则是指？",
+    "options": [
+      "把管理员密码告诉所有人",
+      "只授予完成任务所需的最小权限",
+      "关闭所有安全软件",
+      "不用密码"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 50,
+    "answer": 2,
+    "prompt": "浏览器地址栏的锁形图标通常表示？",
+    "options": [
+      "网站绝对可信",
+      "电脑不会中毒",
+      "与网站之间的连接使用了HTTPS加密",
+      "已经匿名"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 51,
+    "answer": 3,
+    "prompt": "二手硬盘出售前应？",
+    "options": [
+      "直接格式化一次即可",
+      "删除桌面文件即可",
+      "放入回收站",
+      "彻底擦除或销毁数据"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 52,
+    "answer": 0,
+    "prompt": "密码管理器的作用是？",
+    "options": [
+      "安全保存和生成不同密码",
+      "让密码全部一样",
+      "自动破解密码",
+      "关闭防火墙"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 53,
+    "answer": 2,
+    "prompt": "文件扩展名被隐藏时，风险是？",
+    "options": [
+      "文件会变大",
+      "电脑会断电",
+      "可能把 .exe 误认为文档或图片",
+      "网速会下降"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 54,
+    "answer": 3,
+    "prompt": "ping命令通常用于？",
+    "options": [
+      "清理磁盘",
+      "杀毒",
+      "压缩文件",
+      "测试网络连通性和延迟"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 55,
+    "answer": 0,
+    "prompt": "ipconfig命令通常用于？",
+    "options": [
+      "查看本机网络配置",
+      "编辑图片",
+      "播放音乐",
+      "给CPU超频"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 56,
+    "answer": 1,
+    "prompt": "显卡的主要功能是？",
+    "options": [
+      "存储文件",
+      "处理图形图像",
+      "连接打印机",
+      "给CPU供电"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 57,
+    "answer": 2,
+    "prompt": "驱动程序的主要作用是？",
+    "options": [
+      "提高网速",
+      "清理垃圾",
+      "让操作系统与硬件通信",
+      "增加硬盘容量"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 58,
+    "answer": 3,
+    "prompt": "虚拟内存的主要作用是？",
+    "options": [
+      "让显示器更亮",
+      "杀毒",
+      "自动备份",
+      "用硬盘空间扩展内存使用"
+    ]
+  },
+  {
+    "part": 2,
+    "number": 59,
+    "answer": 3,
+    "prompt": "文件系统 NTFS 通常用于？",
+    "options": [
+      "图片格式",
+      "网络协议",
+      "音频格式",
+      "Windows 硬盘分区"
+    ]
+  },
+  {
+    "part": 3,
+    "number": 1,
+    "answer": 2,
+    "prompt": "对一组数进行错位排序，即排序后从前往后依次是：最小的、最大的、第二小的、第二大的……如 [77, 52, 32, 82, 43, 21, 90, 28, 46] 经过排序后结果为 [21, 90, 28, 82, 32, 77, 43, 52, 46]。\n实现该功能的 Python 程序段如下（排序按升序/降序交替进行）：\n```python\nk = 1\nfor i in range(n - 1):\n    for j in range(n - 1, ① , -1):\n        if ② :\n            a[j - 1], a[j] = a[j], a[j - 1]\n    k = -k\n```\n为使程序实现上述错位排序功能，划线处应填入的代码为：",
+    "options": [
+      "① i + 1  ② k * (a[j] - a[j - 1]) < 0",
+      "① i  ② k * (a[j] - a[j - 1]) < 0",
+      "① i  ② k * (a[j] - a[j - 1]) > 0",
+      "① i + 1  ② k * (a[j] - a[j - 1]) > 0"
+    ]
+  },
+  {
+    "part": 3,
+    "number": 2,
+    "answer": 0,
+    "prompt": "汉诺塔游戏中，规定每次只能移动最上面的圆盘，且大盘不能压在小盘上。现有 A、B、C 三根柱子，A 柱上有 3 个圆盘（从上到下编号为 1、2、3，编号越大盘越大），目标是把 3 个圆盘全部移到 C 柱。\n某同学编写如下递归程序模拟移动过程：\n```python\ndef hanoi(n, a, b, c):\n    if n == 1:\n        print(a, \"->\", c)\n    else:\n        hanoi(n - 1, ① , ② , ③ )\n        print(a, \"->\", c)\n        hanoi(n - 1, ④ , ⑤ , ⑥ )\nhanoi(3, \"A\", \"B\", \"C\")\n```\n为使程序正确输出汉诺塔的移动序列，划线处应依次填入的代码为（ ）",
+    "options": [
+      "① a ② c ③ b ④ b ⑤ a ⑥ c",
+      "① a ② b ③ c ④ b ⑤ a ⑥ c",
+      "① a ② c ③ b ④ c ⑤ a ⑥ b",
+      "① a ② b ③ c ④ c ⑤ a ⑥ b"
+    ]
+  },
+  {
+    "part": 3,
+    "number": 3,
+    "answer": 1,
+    "prompt": "某单向链表节点结构为 [data, next]，其中 next 存储下一节点的地址（None 表示链尾）。现有链表：\n```\nhead → [1, →] → [2, →] → [3, →] → [4, →] → [5, None]\n```\n执行如下程序段：\n```python\np = head\nq = head\nwhile q != None and q.next != None:\n    p = p.next\n    q = q.next.next\nprint(p.data)\n```\n执行后输出的结果是（ ）",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "part": 3,
+    "number": 4,
+    "answer": 1,
+    "prompt": "某单向链表节点结构为 [data, next]，next 为 None 表示链尾。现有链表：\n```\nhead → [1, →] → [2, →] → [3, →] → [4, →] → [5, →] → [6, None]\n```\n执行如下程序段：\n```python\np = head\nq = head\nwhile q != None and q.next != None:\n    p = p.next\n    q = q.next.next\nprint(p.data)\n```\n执行后输出的结果是（ ）",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "程序报错"
+    ]
+  }
+]

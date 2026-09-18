@@ -13,6 +13,18 @@ import { dirname, join } from 'node:path';
 import { noviceQuestions } from '../src/lib/data/questions/novice.ts';
 import { systemsQuestions } from '../src/lib/data/questions/systems.ts';
 import { acmQuestions } from '../src/lib/data/questions/acm.ts';
+import { faqQuestions } from '../src/lib/data/questions/faq.ts';
+import { documentQuestions } from '../src/lib/data/questions/document.ts';
+
+const allQuestions = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions, ...documentQuestions];
+const plain = (s) => s.replace(/\*\*|`/g, '').replace(/\s+/g, '');
+function displayedSource() {
+  const prompt = plain(text('.prompt'));
+  const code = plain(text('.code'));
+  const matches = allQuestions.filter((q) => plain(q.zh.prompt) === prompt && plain(q.code ?? '') === code);
+  if (matches.length !== 1) throw new Error(`Cannot uniquely match rendered question: ${prompt}`);
+  return matches[0];
+}
 
 /**
  * 确定性随机源:把 Math.random 换成可播种的 PRNG,
@@ -388,7 +400,9 @@ await sleep(40);
 ok('使用后剩余锦囊 2', text('.left').startsWith('2/'), text('.left'));
 ok('抹除了 2 个错误选项', optionButtons().filter((b) => optionState(b) === 'gone').length === 2,
   `实际 ${optionButtons().filter((b) => optionState(b) === 'gone').length}`);
-ok('正确选项未被抹除', optionButtons().every((b) => !(optionState(b) === 'gone' && false)));
+const fiftySource = displayedSource();
+ok('正确选项未被抹除', optionButtons().some((b) =>
+  plain(b.querySelector('.otext').textContent) === plain(fiftySource.zh.options[fiftySource.answer]) && optionState(b) !== 'gone'));
 
 section('5. EZ 档:用掉 2 条不灭后出局');
 
@@ -413,7 +427,9 @@ const wasRight = () => {
 /** 点一个仍然可点的选项 */
 function clickAnOption() {
   const btns = optionButtons();
-  const i = btns.findIndex((b) => optionState(b) === 'idle');
+  const source = displayedSource();
+  const correct = plain(source.zh.options[source.answer]);
+  const i = btns.findIndex((b) => optionState(b) === 'idle' && plain(b.querySelector('.otext').textContent) !== correct);
   if (i < 0) return false;
   btns[i].dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
   return true;
@@ -664,6 +680,7 @@ section('15. 中途退出(ESC / 按钮 + 确认弹窗)');
   ok('确认框展示当前进度', text('.quit .stats').length > 0, text('.quit .stats').slice(0, 40));
   // 弹窗期间对局仍然留在屏幕上(不是白屏)
   ok('弹窗盖在对局之上,题目仍在', has('.qcard'));
+  ok('未作答时退出弹窗不泄露正确选项', !has('.opts .right') && !text('.opts').includes('✓'));
 
   const cancelBtn = $$('.quit .btn').find((b) => b.textContent.includes('继续'));
   if (cancelBtn) cancelBtn.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));

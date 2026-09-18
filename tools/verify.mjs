@@ -13,6 +13,7 @@ import { noviceQuestions } from '../src/lib/data/questions/novice.ts';
 import { systemsQuestions } from '../src/lib/data/questions/systems.ts';
 import { acmQuestions } from '../src/lib/data/questions/acm.ts';
 import { faqQuestions } from '../src/lib/data/questions/faq.ts';
+import { documentQuestions } from '../src/lib/data/questions/document.ts';
 import { localizeQuestion, ROUNDS_PER_TIER } from '../src/lib/data/types.ts';
 import { TIERS as TIER_META } from '../src/lib/data/tiers.ts';
 
@@ -36,7 +37,7 @@ const flatten = (q) => ({
   chartData: q.chartData,
 });
 
-const ALL_RAW = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions];
+const ALL_RAW = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions, ...documentQuestions];
 
 /**
  * 档位配置从 tiers.ts 取(结构与数值),标签用中文名写在本脚本里。
@@ -78,9 +79,17 @@ function section(title) {
 /* ------------------------------------------------------------------ */
 section('1. 题库结构');
 
-const ALL = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions];
+const ALL = ALL_RAW;
 
-ok('总题数 = 39(15 原有 + 24 FAQ)', ALL.length === 39, `实际 ${ALL.length}`);
+ok('总题数 = 118(39 原有 + 79 文档新增)', ALL.length === 118, `实际 ${ALL.length}`);
+
+const sourceBank = JSON.parse(readFileSync(new URL('../docs/question-bank-source.json', import.meta.url), 'utf8'));
+const expectedRefs = sourceBank.map((q) => `part${q.part}-${String(q.number).padStart(2, '0')}`);
+const actualRefs = ALL.map((q) => q.sourceRef).filter(Boolean);
+ok('来源文档 103 题逐题覆盖且不重复导入', expectedRefs.length === 103 && actualRefs.length === 103 &&
+  new Set(actualRefs).size === 103 && expectedRefs.every((ref) => actualRefs.includes(ref)));
+ok('全部英文题干、选项、讲解不含未翻译的中文', ALL.every((q) =>
+  !/[\u3400-\u9fff]/.test([q.en.prompt, ...q.en.options, q.en.explain].join('\n'))));
 
 for (const t of TIERS) {
   ok(
@@ -107,7 +116,8 @@ for (const t of TIERS) {
   );
   ok(
     `${t.label} 题面/讲解非空且足够长`,
-    t.pool.every((q) => q.prompt.trim().length >= 10 && q.explain.trim().length >= 40),
+    t.pool.every((q) => q.prompt.trim().length >= 5 && q.explain.trim().length >= 40),
+    t.pool.filter((q) => q.prompt.trim().length < 5 || q.explain.trim().length < 40).map((q) => q.id).join(', '),
   );
   ok(
     `${t.label} 每题都有 tags`,
@@ -206,13 +216,13 @@ for (const lang of LOCALES) {
 
 // 摊平不会丢字段:可选题材(code / lang / chart*)必须照抄
 for (const lang of LOCALES) {
-  const flat = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions].map((q) =>
+  const flat = ALL_RAW.map((q) =>
     localizeQuestion(q, lang),
   );
   ok(
     `[${lang}] 摊平后 code / chart 字段无丢失`,
     flat.every((q, i) => {
-      const src = [...noviceQuestions, ...systemsQuestions, ...acmQuestions, ...faqQuestions][i];
+      const src = ALL_RAW[i];
       return q.code === src.code && q.chartKind === src.chartKind && q.chartData === src.chartData;
     }),
   );

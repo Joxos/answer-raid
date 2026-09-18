@@ -1,114 +1,157 @@
 import type { LocalizedQuestion } from '../types';
 
-/**
- * 硬核档:计算机**通识热知识**。
- * 不要求会写代码,但要求平时关注技术圈 —— 热门、有话题度、排队时可讨论。
- * 每题 zh / en 两份文本,`answer` 下标共享。
- */
 export const systemsQuestions: LocalizedQuestion[] = [
   {
-    id: 'hacker-1',
-    tier: 'in',
-    tags: ['大模型', 'GPT'],
-    code: `G = Generative      builds new output
-P = Pre-trained     trained on data first
-T = ?               the core architecture`,
-    lang: 'text',
-    answer: 0,
-    zh: {
-      prompt: '`ChatGPT` 里的 `GPT` 是三个英文单词的首字母缩写,其中 **T** 代表哪个词?',
-      options: ['Transformer', 'Text', 'Transfer', 'Technology'],
-      explain:
-        '`GPT` = **Generative Pre-trained Transformer**,生成式预训练 Transformer。选 `Text` 是望文生义 —— 它确实处理文本,但缩写里没这个词;选 `Transfer` 是形近词混淆。顺带一提,`Transformer` 也正是 **C 档**在考的那个架构:它的核心是自注意力里的 Q / K / V。',
-      source: '社团内部约定(模型归属)',
+    "id": "hacker-1",
+    "tier": "in",
+    "tags": [
+      "大模型",
+      "GPT"
+    ],
+    "code": "G = Generative      builds new output\nP = Pre-trained     trained on data first\nT = ?               the core architecture",
+    "lang": "text",
+    "answer": 0,
+    "zh": {
+      "prompt": "`ChatGPT` 里的 `GPT` 是三个英文单词的首字母缩写,其中 **T** 代表哪个词?",
+      "options": [
+        "Transformer",
+        "Text",
+        "Transfer",
+        "Technology"
+      ],
+      "explain": "GPT 是 Generative Pre-trained Transformer 的缩写，其中 T 表示 Transformer。Text 和 Transfer 虽然形式相近，但都不是这个缩写的展开；Transformer 架构使用注意力机制处理序列。"
     },
-    en: {
-      prompt: '`GPT` in `ChatGPT` is an acronym of three English words. Which word does the **T** stand for?',
-      options: ['Transformer', 'Text', 'Transfer', 'Technology'],
-      explain:
-        '`GPT` = **Generative Pre-trained Transformer**. Picking `Text` is reading too much into the name — it does handle text, but that word is not in the acronym; `Transfer` is a look-alike. Incidentally, `Transformer` is exactly the architecture the **ACM tier** asks about: its heart is the Q / K / V of self-attention.',
-      source: 'Club convention (model attribution)',
-    },
+    "en": {
+      "prompt": "`GPT` in `ChatGPT` is an acronym of three English words. Which word does the **T** stand for?",
+      "options": [
+        "Transformer",
+        "Text",
+        "Transfer",
+        "Technology"
+      ],
+      "explain": "GPT expands to Generative Pre-trained Transformer, so T stands for Transformer. Text and Transfer may look plausible but are not the expansion. The Transformer architecture uses attention to process sequences."
+    }
   },
   {
-    id: 'hacker-2',
-    tier: 'hd',
-    tags: ['大模型', '厂商'],
-    answer: 2,
-    zh: {
-      prompt: '`Mythos` 这个 AI 模型是哪家公司发布的?',
-      options: ['Google', 'Meta', 'Anthropic', 'DeepSeek'],
-      explain:
-        '`Mythos` 出自 **Anthropic**,也就是 `Claude` 系列背后的那家公司。这题真正筛掉的是「只认识 ChatGPT」的人:知道 `Gemini` 属 Google、`Llama` 属 Meta、`DeepSeek` 是国内的,基本就能靠排除法锁定。',
-      source: '社团内部约定(模型归属)',
+    "id": "hacker-2",
+    "tier": "hd",
+    "tags": [
+      "大模型",
+      "厂商"
+    ],
+    "answer": 2,
+    "zh": {
+      "prompt": "`Mythos` 这个 AI 模型是哪家公司发布的?",
+      "options": [
+        "Google",
+        "Meta",
+        "Anthropic",
+        "DeepSeek"
+      ],
+      "explain": "`Mythos` 出自 **Anthropic**,也就是 `Claude` 系列背后的那家公司。这题真正筛掉的是「只认识 ChatGPT」的人:知道 `Gemini` 属 Google、`Llama` 属 Meta、`DeepSeek` 是国内的,基本就能靠排除法锁定。",
+      "source": "Anthropic 官方模型介绍"
     },
-    en: {
-      prompt: 'Which company released the AI model called `Mythos`?',
-      options: ['Google', 'Meta', 'Anthropic', 'DeepSeek'],
-      explain:
-        '`Mythos` comes from **Anthropic**, the company behind the `Claude` family. What this really filters out is people who only know ChatGPT: knowing that `Gemini` is Google\'s, `Llama` is Meta\'s and `DeepSeek` is Chinese is enough to lock the answer down by elimination.',
-      source: 'Club convention (model attribution)',
-    },
+    "en": {
+      "prompt": "Which company released the AI model called `Mythos`?",
+      "options": [
+        "Google",
+        "Meta",
+        "Anthropic",
+        "DeepSeek"
+      ],
+      "explain": "`Mythos` comes from **Anthropic**, the company behind the `Claude` family. What this really filters out is people who only know ChatGPT: knowing that `Gemini` is Google's, `Llama` is Meta's and `DeepSeek` is Chinese is enough to lock the answer down by elimination.",
+      "source": "Anthropic official model overview"
+    }
   },
   {
-    id: 'hacker-3',
-    tier: 'ez',
-    tags: ['大模型', 'API 计费'],
-    code: `# models from one vendor are usually priced in tiers
-client.chat(model="...")   # just swap in one of the options below`,
-    lang: 'python',
-    answer: 3,
-    zh: {
-      prompt: '假设下面四个模型都通过 API 按 token 计费,同样调用约 **100 万 token**,**花费最少**的是?',
-      options: ['Claude Opus', 'Gemini 2.5 Pro', 'GPT-4o', 'GPT-4o mini'],
-      explain:
-        '带 `mini` / `flash` / `lite` 这类后缀的,通常是同一代的**小号**版本,价格往往比旗舰低一个数量级。所以同在榜上,`GPT-4o mini` 最便宜。这道题想让你记住的是一条行业规律:**同一家会把模型分成好几档卖**,能用小号的场景就别上旗舰。',
+    "id": "hacker-3",
+    "tier": "ez",
+    "tags": [
+      "大模型",
+      "API 计费"
+    ],
+    "code": "Hypothetical USD per 1,000,000 input tokens\nClaude Opus     15.00\nGemini 2.5 Pro   1.25\nGPT-4o          2.50\nGPT-4o mini     0.15",
+    "lang": "text",
+    "answer": 3,
+    "zh": {
+      "prompt": "按下面的假设计价表，仅处理 100 万输入 token，没有输出、缓存或其他费用，哪个模型的费用最低？这些数字只用于本题计算，并非实时价格。",
+      "options": [
+        "Claude Opus",
+        "Gemini 2.5 Pro",
+        "GPT-4o",
+        "GPT-4o mini"
+      ],
+      "explain": "比较题目给定的输入费率即可：0.15 小于 1.25、2.50 和 15.00，因此选 GPT-4o mini。现实 API 的输入、输出、缓存与批处理可能分别计价，不能只凭模型名称或 token 总量判断账单。"
     },
-    en: {
-      prompt:
-        'Assume all four models below are billed per token through an API. For the same call of about **1 million tokens**, which one is **cheapest**?',
-      options: ['Claude Opus', 'Gemini 2.5 Pro', 'GPT-4o', 'GPT-4o mini'],
-      explain:
-        'Names carrying a `mini` / `flash` / `lite` suffix are usually the **small sibling** of the same generation, and typically cost an order of magnitude less than the flagship. So on this list, `GPT-4o mini` is cheapest. The industry rule to remember: **one vendor sells its models in several price tiers**, so don\'t reach for the flagship when the small one will do.',
-    },
+    "en": {
+      "prompt": "Using the hypothetical rate table below, which model costs least for 1 million input tokens, with no output, caching, or other fees? These figures are for this exercise, not live prices.",
+      "options": [
+        "Claude Opus",
+        "Gemini 2.5 Pro",
+        "GPT-4o",
+        "GPT-4o mini"
+      ],
+      "explain": "Compare the supplied input rates: 0.15 is less than 1.25, 2.50, and 15.00, so GPT-4o mini is cheapest under these assumptions. Real APIs may price input, output, caching, and batching separately."
+    }
   },
   {
-    id: 'hacker-4',
-    tier: 'in',
-    tags: ['Web', '前端框架'],
-    code: `frontend: runs in the browser, draws the UI
-backend:  runs on a server, owns the data`,
-    lang: 'text',
-    answer: 2,
-    zh: {
-      prompt: '下列哪一个是**前端框架**?',
-      options: ['Django', 'Spring Boot', 'React', 'PostgreSQL'],
-      explain:
-        '`React` 是前端框架,代码最终跑在浏览器里、负责画界面。另外三个都是后端或数据侧的:`Django` 是 Python 的后端框架、`Spring Boot` 是 Java 的后端框架、`PostgreSQL` 是数据库。同类的前端框架还有 `Vue`、`Angular`、`Svelte`。',
+    "id": "hacker-4",
+    "tier": "in",
+    "tags": [
+      "Web",
+      "前端框架"
+    ],
+    "code": "frontend: runs in the browser, draws the UI\nbackend:  runs on a server, owns the data",
+    "lang": "text",
+    "answer": 2,
+    "zh": {
+      "prompt": "下列哪一个是用于构建用户界面的前端库？",
+      "options": [
+        "Django",
+        "Spring Boot",
+        "React",
+        "PostgreSQL"
+      ],
+      "explain": "React 是用于构建用户界面的库，可用于 Web 等平台。Django 与 Spring Boot 是服务端框架，PostgreSQL 是数据库。React 本身并不提供完整应用所需的全部路由和数据获取方案。"
     },
-    en: {
-      prompt: 'Which of the following is a **frontend framework**?',
-      options: ['Django', 'Spring Boot', 'React', 'PostgreSQL'],
-      explain:
-        '`React` is a frontend framework: its code ultimately runs in the browser and draws the interface. The other three live on the backend or data side — `Django` is a Python backend framework, `Spring Boot` a Java backend framework, and `PostgreSQL` a database. Other frontend frameworks in the same family include `Vue`, `Angular` and `Svelte`.',
-    },
+    "en": {
+      "prompt": "Which of the following is a frontend library for building user interfaces?",
+      "options": [
+        "Django",
+        "Spring Boot",
+        "React",
+        "PostgreSQL"
+      ],
+      "explain": "React is a library for building user interfaces on the web and other platforms. Django and Spring Boot are server-side frameworks, while PostgreSQL is a database. React itself does not prescribe all routing and data-fetching behavior."
+    }
   },
   {
-    id: 'hacker-5',
-    tier: 'in',
-    tags: ['大模型', '开源'],
-    answer: 0,
-    zh: {
-      prompt: '下面哪一组模型是**权重开放、可以自己下载部署**的?',
-      options: ['Llama 与 DeepSeek', 'Gemini 与 Grok', 'GPT-4o 与 Claude', '以上都可以'],
-      explain:
-        '`Llama`(Meta)与 `DeepSeek` 都开放了模型权重,可以自己下载、部署到本地或私有服务器上;另外两组都是只能通过官方 API 调用的闭源服务。「开源还是闭源」是这两年技术圈最热的话题之一,也是判断一个人**是真关注还是只听说过**的分水岭。',
+    "id": "hacker-5",
+    "tier": "in",
+    "tags": [
+      "大模型",
+      "开源"
+    ],
+    "answer": 0,
+    "zh": {
+      "prompt": "下列哪组指定版本的模型都发布了可供下载部署的权重（仍需遵守各自许可证）？",
+      "options": [
+        "Llama 3 与 DeepSeek-R1",
+        "GPT-4o 与 Llama 3",
+        "GPT-4o 与 DeepSeek-R1",
+        "以上都可以"
+      ],
+      "explain": "Llama 3 与 DeepSeek-R1 都发布了可下载的权重，但部署和使用仍需遵守各自许可证。开放权重不等于没有使用限制；应核对具体版本，不能把一个厂商的全部模型都归为同一类别。"
     },
-    en: {
-      prompt: 'Which pair of models has **open weights that you can download and deploy yourself**?',
-      options: ['Llama and DeepSeek', 'Gemini and Grok', 'GPT-4o and Claude', 'All of the above'],
-      explain:
-        'Both `Llama` (Meta) and `DeepSeek` publish their model weights, so you can download them and deploy locally or on your own servers; the other two pairs are closed services reachable only through an official API. "Open or closed" is one of the hottest topics in tech right now, and it separates people who **actually follow the field from those who have only heard of it**.',
-    },
-  },
+    "en": {
+      "prompt": "Which pair of specific model releases both provide downloadable weights for self-hosting, subject to their licenses?",
+      "options": [
+        "Llama 3 and DeepSeek-R1",
+        "GPT-4o and Llama 3",
+        "GPT-4o and DeepSeek-R1",
+        "All of the above"
+      ],
+      "explain": "Llama 3 and DeepSeek-R1 both publish downloadable model weights, subject to their respective licenses. Open weights do not mean unrestricted use. Check specific releases instead of classifying every model from a vendor identically."
+    }
+  }
 ];
