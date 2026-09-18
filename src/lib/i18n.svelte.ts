@@ -138,9 +138,11 @@ const nb = (v: unknown): string => Number(v).toLocaleString();
 
 const DICT: Record<Lang, Record<string, Message>> = {
   zh: {
+    'q.hintPenalty': Msg((p) => `情报 ×${p.n}`),
+    'q.diagram': '题目示意图',
     'org.chip': '计算机协会 · 百团大战',
-    'org.bank': '15 题库 · 随机抽题',
-    'intro.tagline': Msg((p) => `五个难度 · 三题一晋级 · 答错扣不灭次数 · 通关 ${p.tier} 档才算封神`),
+    'org.bank': Msg((p) => `${p.n} 题库 · 随机抽题`),
+    'intro.tagline': Msg((p) => `${p.tiers} 个难度 · 每档答对 ${p.rounds} 题晋级 · 答错扣不灭次数 · 通关 ${p.tier} 档才算封神`),
     'intro.tiers': '// 难度档位',
     'intro.nPerTier': Msg((p) => `${p.n} 题`),
     'intro.perQuestion': Msg((p) => `${p.s}s / 题`),
@@ -185,8 +187,8 @@ const DICT: Record<Lang, Record<string, Message>> = {
 
     'boot.line1': 'CSA-BIOS v3.7 · 计算机协会 · 百团大战特装版',
     'boot.line2': '检测 CPU ................................................. OK',
-    'boot.line3': '挂载题库 /dev/csa0 ............................ 15 SECTORS',
-    'boot.line4': '难度档位:EZ / HD / IN / AT / SP',
+    'boot.line3': Msg((p) => `挂载题库 /dev/csa0 ............................ ${p.n} SECTORS`),
+    'boot.line4': Msg((p) => `难度档位:${p.tiers}`),
     'boot.line5': '警告:本机对「想当然」零容忍。',
     'boot.ready': '系统就绪。按 任意键 载入答题终端 …',
 
@@ -338,9 +340,11 @@ const DICT: Record<Lang, Record<string, Message>> = {
   },
 
   en: {
+    'q.hintPenalty': Msg((p) => `Hint ×${p.n}`),
+    'q.diagram': 'Question diagram',
     'org.chip': 'Computer Association · Club Fair',
-    'org.bank': '15 questions · drawn at random',
-    'intro.tagline': Msg((p) => `Five tiers · 3 questions each · wrong answers cost lives · clear ${p.tier} to win`),
+    'org.bank': Msg((p) => `${p.n} questions · drawn at random`),
+    'intro.tagline': Msg((p) => `${p.tiers} tiers · ${p.rounds} correct answers each · wrong answers cost lives · clear ${p.tier} to win`),
     'intro.tiers': '// DIFFICULTY TIERS',
     'intro.nPerTier': Msg((p) => `${p.n} questions`),
     'intro.perQuestion': Msg((p) => `${p.s}s each`),
@@ -385,8 +389,8 @@ const DICT: Record<Lang, Record<string, Message>> = {
 
     'boot.line1': 'CSA-BIOS v3.7 · Computer Association · Club Fair Edition',
     'boot.line2': 'CPU check ............................................... OK',
-    'boot.line3': 'Mounting question bank /dev/csa0 ............... 15 SECTORS',
-    'boot.line4': 'Difficulty tiers: EZ / HD / IN / AT / SP',
+    'boot.line3': Msg((p) => `Mounting question bank /dev/csa0 ............... ${p.n} SECTORS`),
+    'boot.line4': Msg((p) => `Difficulty tiers: ${p.tiers}`),
     'boot.line5': 'Warning: this machine has zero tolerance for "sounds about right".',
     'boot.ready': 'System ready. Press any key to load the raid terminal …',
 
