@@ -248,8 +248,10 @@ tools/                            离线验证脚本(不参与构建)
 主题 + 回归 + 商店引擎),给 CI 和本地快速自检用;`test:dom` 需要 `dist/` 产物,
 所以排在校验之后单独跑。
 
-`package.json` 里的 `packageManager: pnpm@12.4.2` 是给 CI 定版本用的
-(`pnpm/action-setup` 直接读它),本地 pnpm 版本不受影响。
+工作流里 pnpm 版本是**写在工作流里**的(`pnpm/action-setup` 的 `version: 12.4.2`)。
+刻意不在 `package.json` 里加 `packageManager` 字段:那会让 pnpm 把**它自己**写进
+lockfile 的 `packageManagerDependencies`,与 CI 的 `--frozen-lockfile` 冲突
+(`ERR_PNPM_FROZEN_LOCKFILE_WITH_OUTDATED_LOCKFILE`)。升级 pnpm 时改这一处即可。
 
 启用前提(已设置,换仓库时需要重做):仓库 Settings → Pages → Source 选
 **GitHub Actions**。`dist/` 在 `.gitignore` 里,所以走的是 artifact 发布而不是分支发布;

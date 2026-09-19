@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "description": "计算机协会百团大战 · 硬核答题突袭 (Svelte 5 + Vite)",
-  "packageManager": "pnpm@12.4.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

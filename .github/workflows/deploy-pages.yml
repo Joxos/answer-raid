@@ -28,7 +28,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 版本必须显式给出:action 读不到 packageManager 时(本项目刻意不加,
+      # 加了会让 pnpm 自身进入 lockfile 的 packageManagerDependencies,
+      # 与 --frozen-lockfile 冲突)会直接报 "No pnpm version is specified"。
       - uses: pnpm/action-setup@v4
+        with:
+          version: 12.4.2
 
       - uses: actions/setup-node@v4
         with:
