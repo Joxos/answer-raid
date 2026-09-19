@@ -1,0 +1,66 @@
+# 把 dist/ 发布到 GitHub Pages(https://joxos.github.io/answer-raid/)。
+#
+# 本项目是纯静态无后端产物,`vite.config.ts` 里 `base: './'` 已用相对路径,
+# 因此 project site 的子路径托管不需要任何额外配置。
+#
+# 部署前会跑一遍 `pnpm test:bank`,题库结构/双语完整性/抽题逻辑坏掉时直接拦住,
+# 不让坏题库上线(现场活动的二维码扫出来必须是能用的版本)。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 只允许一个并发部署;排队中的旧任务直接取消,线上始终是 main 的最新产物。
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 题库与引擎的离线校验(不含需要构建产物的 test:dom)
+      - name: Verify question bank
+        run: pnpm test:bank
+
+      - name: Build
+        run: pnpm build
+
+      # 关掉 Jekyll:否则下划线开头的文件/目录会被吞掉,而且多一次无用处理
+      - name: Disable Jekyll
+        run: touch dist/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -235,6 +235,21 @@ tools/                            离线验证脚本(不参与构建)
 `pnpm build` 后把 `dist/` 整个目录丢到任意静态服务的子路径即可(`vite.config.ts` 里
 `base: './'` 已配成相对路径,不依赖根目录)。
 
+### GitHub Pages(已配置)
+
+线上地址:**<https://joxos.github.io/answer-raid/>**
+
+`.github/workflows/deploy-pages.yml` 会在每次 push 到 `main` 时自动跑
+`pnpm install --frozen-lockfile` → `pnpm test:bank` → `pnpm build`,把 `dist/` 发布到
+Pages。**题库校验失败就不会上线** —— 现场二维码扫出来的必须是能用的版本。
+也可以在 Actions 页面手动 `workflow_dispatch` 触发一次。
+
+启用前提(已设置,换仓库时需要重做):仓库 Settings → Pages → Source 选
+**GitHub Actions**。`dist/` 在 `.gitignore` 里,所以走的是 artifact 发布而不是分支发布;
+工作流会额外写一个 `dist/.nojekyll` 关掉 Jekyll 处理。
+
+其他托管方式同理:内网 nginx 只需把 `dist/` 放到任意子路径,不需要改构建配置。
+
 ## 引擎回归验证
 
 `pnpm test:regression` 使用确定性时钟检查真实引擎：满分 10185、连续答对计分与明细一致、
