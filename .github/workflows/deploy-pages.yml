@@ -3,8 +3,8 @@
 # 本项目是纯静态无后端产物,`vite.config.ts` 里 `base: './'` 已用相对路径,
 # 因此 project site 的子路径托管不需要任何额外配置。
 #
-# 部署前会跑一遍 `pnpm test:bank`,题库结构/双语完整性/抽题逻辑坏掉时直接拦住,
-# 不让坏题库上线(现场活动的二维码扫出来必须是能用的版本)。
+# 部署前会跑 `pnpm test:ci` 加 `pnpm test:dom`(全套离线断言),题库或引擎坏掉时
+# 直接拦住,不让坏版本上线(现场二维码扫出来必须是能用的版本)。
 name: Deploy to GitHub Pages
 
 on:
@@ -38,12 +38,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 题库与引擎的离线校验(不含需要构建产物的 test:dom)
-      - name: Verify question bank
-        run: pnpm test:bank
+      # 全套离线校验:类型检查 + 题库结构/双语完整性 + 答案用例 +
+      # 主题令牌 + 计分与暂停回归 + 真实商店引擎。
+      # (test:dom 吃构建产物、且按顺序排在 build 之后,所以单独放到 build 之后跑)
+      - name: Tests
+        run: pnpm test:ci
 
       - name: Build
         run: pnpm build
+
+      - name: DOM smoke tests
+        run: pnpm test:dom
 
       # 关掉 Jekyll:否则下划线开头的文件/目录会被吞掉,而且多一次无用处理
       - name: Disable Jekyll

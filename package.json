@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "计算机协会百团大战 · 硬核答题突袭 (Svelte 5 + Vite)",
+  "packageManager": "pnpm@12.4.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,7 +16,8 @@
     "test:theme": "node tools/theme-test.mjs",
     "test:regression": "node --experimental-strip-types --import ./tools/store-register.mjs tools/regression-test.mjs",
     "test:answers": "node --experimental-strip-types tools/answer-test.mjs",
-    "test": "pnpm run check && pnpm run test:bank && pnpm run test:answers && pnpm run test:theme && pnpm run test:regression && pnpm run test:store && pnpm run build && pnpm run test:dom"
+    "test": "pnpm run check && pnpm run test:bank && pnpm run test:answers && pnpm run test:theme && pnpm run test:regression && pnpm run test:store && pnpm run build && pnpm run test:dom",
+    "test:ci": "pnpm run check && pnpm run test:bank && pnpm run test:answers && pnpm run test:theme && pnpm run test:regression && pnpm run test:store"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.0",

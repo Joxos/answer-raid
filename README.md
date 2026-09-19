@@ -240,9 +240,16 @@ tools/                            离线验证脚本(不参与构建)
 线上地址:**<https://joxos.github.io/answer-raid/>**
 
 `.github/workflows/deploy-pages.yml` 会在每次 push 到 `main` 时自动跑
-`pnpm install --frozen-lockfile` → `pnpm test:bank` → `pnpm build`,把 `dist/` 发布到
-Pages。**题库校验失败就不会上线** —— 现场二维码扫出来的必须是能用的版本。
-也可以在 Actions 页面手动 `workflow_dispatch` 触发一次。
+`pnpm install --frozen-lockfile` → `pnpm test:ci` → `pnpm build` → `pnpm test:dom`,
+把 `dist/` 发布到 Pages。**任何一项校验失败都不会上线** —— 现场二维码扫出来的必须是
+能用的版本。也可以在 Actions 页面手动 `workflow_dispatch` 触发一次。
+
+`test:ci` 是 `pnpm test` 去掉构建与 DOM 冒烟的那一半(类型检查 + 题库 + 答案用例 +
+主题 + 回归 + 商店引擎),给 CI 和本地快速自检用;`test:dom` 需要 `dist/` 产物,
+所以排在校验之后单独跑。
+
+`package.json` 里的 `packageManager: pnpm@12.4.2` 是给 CI 定版本用的
+(`pnpm/action-setup` 直接读它),本地 pnpm 版本不受影响。
 
 启用前提(已设置,换仓库时需要重做):仓库 Settings → Pages → Source 选
 **GitHub Actions**。`dist/` 在 `.gitignore` 里,所以走的是 artifact 发布而不是分支发布;
