@@ -2,6 +2,7 @@
   /** 标题页:输入代号 → 选择开始。展示三档难度与个人最佳战绩。 */
   import { fade, fly } from 'svelte/transition';
   import { TIERS } from '../data/tiers';
+  import { ALL_QUESTIONS_SOURCE } from '../data/questions';
   import { ROUNDS_PER_TIER } from '../data/types';
   import { game, startRun, JOKERS_PER_RUN, initAudio, jokers } from '../quiz.svelte';
   import { msg, t, fmt } from '../i18n.svelte.ts';
@@ -34,8 +35,7 @@
   <header class="head">
     <div class="org" in:fade={{ duration: 260 }}>
       <span class="chip">{t(msg('org.chip'))}</span>
-      <span class="chip">SVELTE 5 · RUNES</span>
-      <span class="chip">{t(msg('org.bank'))}</span>
+      <span class="chip">{fmt('org.bank', { n: ALL_QUESTIONS_SOURCE.length })}</span>
     </div>
 
     <div class="logoWrap">
@@ -49,7 +49,7 @@
       <span class="w2">RAID</span>
     </h1>
     <p class="sub">
-      {t(msg('intro.tagline'), { tier: TIERS[2].name })}
+      {fmt('intro.tagline', { tiers: TIERS.length, rounds: ROUNDS_PER_TIER, tier: TIERS[TIERS.length - 1].name })}
     </p>
   </header>
 
@@ -158,7 +158,6 @@
 
   <footer class="foot mute">
     <span>{t(msg('intro.footKeys'))}</span>
-    <span>{t(msg('intro.footStack'))}</span>
   </footer>
 </div>
 

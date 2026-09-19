@@ -2,8 +2,8 @@
  * 答题引擎。使用 Svelte 5 runes($state/$derived)写成 .svelte.ts 模块,
  * 所有组件共享同一个单例 store。
  *
- * 规则:五档递进(EZ → HD → IN → AT → SP),每档答满 3 题晋级,答错扣「不灭次数」,
- * 次数归零即出局;题库共 15 题,每局按未出现过的题随机抽取,选项顺序也重新打乱。
+ * 规则:三档递进(EZ → HD → IN),每档答对 ROUNDS_PER_TIER 题晋级。
+ * 答错扣「不灭次数」,归零即出局;随机抽题并打乱选项。
  */
 
 import type { TierId } from './data/types';
@@ -14,6 +14,7 @@ import {
   hintFor,
   localizedQuestion,
   answerIndexOf,
+  ALL_QUESTIONS_SOURCE,
   type DrawnQuestion,
 } from './data/questions';
 import { fmt, msg, t } from './i18n.svelte.ts';
@@ -88,7 +89,9 @@ interface State {
 
 /** 开机自检台词,按当前语言生成(切语言时开场动画会跟着变)。 */
 export function bootLines(): string[] {
-  return ['boot.line1', 'boot.line2', 'boot.line3', 'boot.line4', 'boot.line5'].map((k) => fmt(k));
+  return ['boot.line1', 'boot.line2', 'boot.line3', 'boot.line4', 'boot.line5'].map((k) =>
+    fmt(k, { n: ALL_QUESTIONS_SOURCE.length, tiers: TIERS.map((t) => t.name).join(' / ') }),
+  );
 }
 
 function freshGame(): State {
@@ -130,6 +133,9 @@ export const game = $state<State>(freshGame());
 
 let timer: ReturnType<typeof setInterval> | null = null;
 let advanceTimer: ReturnType<typeof setTimeout> | null = null;
+let advanceAction: (() => void) | null = null;
+let advanceDeadline = 0;
+let advanceRemaining = 0;
 let tickCounter = 0;
 
 export const tier = () => tierMeta(TIERS[game.tierIndex].id);
@@ -150,6 +156,23 @@ export function currentAnswerIndex(): number {
   return game.current ? answerIndexOf(game.current) : -1;
 }
 
+/** Localize already-visible hints and feedback when the player changes language. */
+export function currentHint(): string | null {
+  const question = currentQuestion();
+  return game.hint !== null && question ? hintFor(question) : null;
+}
+
+export function feedbackBreakdown(): string {
+  if (game.isCorrect === null) return '';
+  if (!game.isCorrect) return fmt(game.timesUp ? 'score.timeout' : 'score.misjudge');
+  return fmt('score.base', {
+    base: tier().baseScore,
+    time: Math.round(timeFactor() * 100),
+    combo: Math.round(comboFactor() * 100),
+    penalty: Math.round(game.penalty * 100),
+  });
+}
+
 /**
  * 下面这些派生的数值都以「函数返回值」的形式导出 ——
  * Svelte 5 不允许从模块里直接导出 $derived,导出访问器是官方推荐写法。
@@ -161,13 +184,13 @@ export function timeFactor(): number {
 }
 
 /** 当前连击倍率:每连对 +0.1,封顶 ×2.0。 */
-export function comboFactor(): number {
-  return Math.min(2, 1 + 0.1 * Math.max(0, game.chain - 1));
+export function comboFactor(chain = game.chain): number {
+  return Math.min(2, 1 + 0.1 * Math.max(0, chain - 1));
 }
 
 /** 本题若答对能拿多少分(实时预览,让玩家看着倒计时掉分)。 */
 export function livePotential(): number {
-  return Math.round(tier().baseScore * timeFactor() * comboFactor() * game.penalty);
+  return Math.round(tier().baseScore * timeFactor() * comboFactor(game.chain + 1) * game.penalty);
 }
 
 export function accuracy(): number {
@@ -177,7 +200,7 @@ export function accuracy(): number {
 export function rank(): { t: string; d: string } {
   const s = game.score;
   const reachedIn = game.finalTierIndex >= 2 || game.tierIndex >= 2;
-  if (game.cleared && game.correct >= TIERS.length * ROUNDS_PER_TIER) return { t: 'SSS', d: fmt('rank.SSS') };
+  if (game.cleared && game.correct === game.answered && game.correct >= TIERS.length * ROUNDS_PER_TIER) return { t: 'SSS', d: fmt('rank.SSS') };
   if (game.cleared) return { t: 'SS', d: fmt('rank.SS') };
   if (reachedIn) return { t: 'S', d: fmt('rank.S') };
   if (s >= 3500) return { t: 'A', d: fmt('rank.A') };
@@ -195,6 +218,22 @@ function clearTimers(): void {
     clearTimeout(advanceTimer);
     advanceTimer = null;
   }
+  advanceAction = null;
+  advanceRemaining = 0;
+}
+
+/** Preserve the remaining feedback time while the quit dialog is open. */
+function scheduleAdvance(action: () => void, delay: number): void {
+  if (advanceTimer) clearTimeout(advanceTimer);
+  advanceAction = action;
+  advanceRemaining = delay;
+  advanceDeadline = Date.now() + delay;
+  advanceTimer = setTimeout(() => {
+    advanceTimer = null;
+    advanceAction = null;
+    advanceRemaining = 0;
+    action();
+  }, delay);
 }
 
 /** 启动 100ms 心跳倒计时。 */
@@ -310,7 +349,7 @@ function reveal(index: number, timesUp: boolean): void {
   game.phase = 'feedback';
 
   const needPromote = correct && game.tierProgress >= ROUNDS_PER_TIER;
-  advanceTimer = setTimeout(() => {
+  scheduleAdvance(() => {
     if (game.lives <= 0) {
       finishRun(false);
       return;
@@ -322,7 +361,7 @@ function reveal(index: number, timesUp: boolean): void {
 
 function promote(): void {
   if (game.tierIndex >= TIERS.length - 1) {
-    // SP 档答满 3 题:通关。
+    // 最后一档答满规定题数:通关。
     finishRun(true);
     return;
   }
@@ -334,7 +373,7 @@ function promote(): void {
   game.eliminated = [];
   game.phase = 'promote';
   sound.sfx('promote');
-  advanceTimer = setTimeout(() => nextQuestion(), PROMOTE_MS);
+  scheduleAdvance(() => nextQuestion(), PROMOTE_MS);
 }
 
 function finishRun(cleared: boolean): void {
@@ -374,6 +413,11 @@ export function requestQuit(): void {
     clearInterval(timer);
     timer = null;
   }
+  if (advanceTimer) {
+    advanceRemaining = Math.max(0, advanceDeadline - Date.now());
+    clearTimeout(advanceTimer);
+    advanceTimer = null;
+  }
   game.resumeAfterQuit = game.phase;
   game.phase = 'confirm-quit';
 }
@@ -382,8 +426,9 @@ export function requestQuit(): void {
 export function cancelQuit(): void {
   if (game.phase !== 'confirm-quit') return;
   game.phase = game.resumeAfterQuit === 'feedback' ? 'feedback' : 'playing';
-  // 只有回到"正在答题"才需要恢复心跳;feedback 阶段本来就靠 advanceTimer 推进
+  // 恢复答题倒计时或尚未结束的判定展示时间。
   if (game.phase === 'playing') startTimer();
+  else if (advanceAction) scheduleAdvance(advanceAction, advanceRemaining);
 }
 
 /** 确认退出:丢弃本局进度,回到标题页。 */

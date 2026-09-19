@@ -19,6 +19,8 @@ export interface QuestionText {
 /** 题目的结构信息(code / 图表 / 答案下标)与语言无关,只有文本按语言各存一份。 */
 export interface LocalizedQuestion {
   id: string;
+  /** Stable section/question reference in the supplied source bank. */
+  sourceRef?: string;
   tier: TierId;
   tags: string[];
   code?: string;

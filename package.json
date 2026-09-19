@@ -13,7 +13,9 @@
     "test:store": "node --experimental-strip-types --import ./tools/store-register.mjs tools/store-test.mjs",
     "test:dom": "node tools/smoke.mjs",
     "test:theme": "node tools/theme-test.mjs",
-    "test": "pnpm run check && pnpm run test:bank && pnpm run test:theme && pnpm run test:store && pnpm run build && pnpm run test:dom"
+    "test:regression": "node --experimental-strip-types --import ./tools/store-register.mjs tools/regression-test.mjs",
+    "test:answers": "node --experimental-strip-types tools/answer-test.mjs",
+    "test": "pnpm run check && pnpm run test:bank && pnpm run test:answers && pnpm run test:theme && pnpm run test:regression && pnpm run test:store && pnpm run build && pnpm run test:dom"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.0",

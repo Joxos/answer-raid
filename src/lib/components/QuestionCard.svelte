@@ -1,7 +1,7 @@
 <script lang="ts">
   /** 题目卡:题面 / 代码 / 图表 / 选项。feedback 阶段自动标出正误。 */
   import Rich from './Rich.svelte';
-  import { game, answer, currentQuestion, currentAnswerIndex } from '../quiz.svelte';
+  import { game, answer, currentQuestion, currentAnswerIndex, currentHint } from '../quiz.svelte';
   import { ROUNDS_PER_TIER } from '../data/types';
   import { tierMeta } from '../data/tiers';
   import { msg, t, tagLabel } from '../i18n.svelte.ts';
@@ -14,6 +14,7 @@
   const cur = $derived(currentQuestion());
   const answerIdx = $derived(currentAnswerIndex());
   const locked = $derived(game.phase !== 'playing');
+  const revealed = $derived(game.isCorrect !== null);
   const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
   const svgSrc = $derived(
@@ -31,7 +32,7 @@
   function optClass(i: number): string {
     const cls: string[] = [];
     if (game.eliminated.includes(i)) cls.push('gone');
-    if (!locked) return cls.join(' ');
+    if (!revealed) return cls.join(' ');
     if (cur && i === answerIdx) cls.push('right');
     if (game.picked === i && cur && i !== answerIdx) cls.push('wrong');
     if (game.picked === i) cls.push('picked');
@@ -50,7 +51,7 @@
         {#each cur.tags as tg (tg)}<span class="chip">{tagLabel(tg)}</span>{/each}
       </span>
       {#if game.penalty < 1}
-        <span class="chip pen">情报 ×{game.penalty}</span>
+        <span class="chip pen">{t(msg('q.hintPenalty'), { n: game.penalty })}</span>
       {/if}
     </div>
 
@@ -61,11 +62,11 @@
     {:else if cur.chartKind === 'ascii' && cur.chartData}
       <pre class="chart">{cur.chartData}</pre>
     {:else if svgSrc}
-      <img class="chartSvg" src={svgSrc} alt="题目示意图" />
+      <img class="chartSvg" src={svgSrc} alt={t(msg('q.diagram'))} />
     {/if}
 
     {#if game.hint}
-      <p class="hint"><span class="hk">{t(msg('hint.panel'))}</span>{game.hint}</p>
+      <p class="hint"><span class="hk">{t(msg('hint.panel'))}</span>{currentHint()}</p>
     {/if}
 
     <ul class="opts">
@@ -77,9 +78,9 @@
             <span class="mark">
               {#if game.eliminated.includes(i)}
                 ✕
-              {:else if locked && i === answerIdx}
+              {:else if revealed && i === answerIdx}
                 ✓
-              {:else if locked && game.picked === i}
+              {:else if revealed && game.picked === i}
                 ✗
               {:else}
                 <span class="kbd">{LETTERS[i]}</span>

@@ -5,6 +5,7 @@ import { noviceQuestions } from './questions/novice';
 import { systemsQuestions } from './questions/systems';
 import { acmQuestions } from './questions/acm';
 import { faqQuestions } from './questions/faq';
+import { documentQuestions } from './questions/document';
 
 /** 全部题目(双语)。文件的划分只是"编写时的归类",难度档位由每题自己的 `tier` 决定。 */
 const ALL_SOURCE: LocalizedQuestion[] = [
@@ -12,6 +13,7 @@ const ALL_SOURCE: LocalizedQuestion[] = [
   ...systemsQuestions,
   ...acmQuestions,
   ...faqQuestions,
+  ...documentQuestions,
 ];
 
 /**

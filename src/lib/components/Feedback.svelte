@@ -2,7 +2,7 @@
   /** 判定面板:正误 + 原理讲解 + 得分明细。 */
   import { fly } from 'svelte/transition';
   import Rich from './Rich.svelte';
-  import { game, tier, currentQuestion, currentAnswerIndex } from '../quiz.svelte';
+  import { game, tier, currentQuestion, currentAnswerIndex, feedbackBreakdown } from '../quiz.svelte';
   import { ROUNDS_PER_TIER } from '../data/types';
   import { msg, t, fmt } from '../i18n.svelte.ts';
 
@@ -49,7 +49,7 @@
     </div>
 
     <div class="foot">
-      <span class="brk mute">{game.lastBreakdown}</span>
+      <span class="brk mute">{feedbackBreakdown()}</span>
       <span class="tierNow" style="--th:{tier().hue}"
         >{fmt('fb.tierProgress', {
           tier: fmt(`tier.${tier().id}.label`),

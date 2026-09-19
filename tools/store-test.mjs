@@ -29,6 +29,7 @@ const TIERS = (await import('../src/lib/data/tiers.ts')).TIERS;
 const { ROUNDS_PER_TIER } = await import('../src/lib/data/types.ts');
 const { bankFor, drawQuestion, localizedQuestion } = await import('../src/lib/data/questions.ts');
 const { fmt, locale, setLocale, tagLabel } = await import('../src/lib/i18n.svelte.ts');
+setLocale('zh');
 
 /**
  * 题干/选项现在是**按当前语言即时求值**的(`game.current` 只存双语源码 + 选项顺序),
