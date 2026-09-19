@@ -35,7 +35,6 @@
   <header class="head">
     <div class="org" in:fade={{ duration: 260 }}>
       <span class="chip">{t(msg('org.chip'))}</span>
-      <span class="chip">SVELTE 5 · RUNES</span>
       <span class="chip">{fmt('org.bank', { n: ALL_QUESTIONS_SOURCE.length })}</span>
     </div>
 
@@ -159,7 +158,6 @@
 
   <footer class="foot mute">
     <span>{t(msg('intro.footKeys'))}</span>
-    <span>{t(msg('intro.footStack'))}</span>
   </footer>
 </div>
 
